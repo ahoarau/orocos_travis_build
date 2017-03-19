@@ -7,15 +7,12 @@ env:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - NO_TESTS_BUILD='true'
     - BEFORE_SCRIPT='bash <(curl -s https://github.com/kuka-isir/rtt_lwr/raw/rtt_lwr-2.0/lwr_utils/config/build_orocos_toolchain-2.9.sh)'
+    - ADDITIONAL_DEBS=curl
+  
   matrix:
     - ROS_DISTRO="indigo"
     - ROS_DISTRO="jade"
     - ROS_DISTRO="kinetic"
-
-matrix:
-  allow_failures:
-    - env: ROS_DISTRO="kinetic"
-
 install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 script:
