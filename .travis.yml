@@ -7,7 +7,7 @@ env:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - NO_TESTS_BUILD='true'
     - BEFORE_SCRIPT='bash <(curl -s https://raw.githubusercontent.com/kuka-isir/rtt_lwr/rtt_lwr-2.0/lwr_utils/config/build_orocos_toolchain-2.9.sh)'
-    - ADDITIONAL_DEBS="curl ruby1.9.3 ruby-dev libreadline-dev"
+    - ADDITIONAL_DEBS="curl ruby1.9.3 ruby-dev libreadline-dev libboost-all-dev"
   
   matrix:
     - ROS_DISTRO="indigo"
