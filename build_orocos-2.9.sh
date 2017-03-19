@@ -7,7 +7,7 @@ mkdir -p ~/orocos-2.9_ws/src
 
 wstool init ~/orocos-2.9_ws/src
 wstool merge https://raw.githubusercontent.com/kuka-isir/rtt_lwr/rtt_lwr-2.0/lwr_utils/config/orocos_toolchain-2.9.rosinstall -t ~/orocos-2.9_ws/src
-wstool update -j2 -t ~/orocos-2.9_ws/src
+wstool update -t ~/orocos-2.9_ws/src
 
 # Get the latest updates
 
@@ -32,7 +32,7 @@ catkin build -w ~/orocos-2.9_ws/
 mkdir -p ~/rtt_ros-2.9_ws/src
 wstool init ~/rtt_ros-2.9_ws/src
 wstool merge https://github.com/kuka-isir/rtt_lwr/raw/rtt_lwr-2.0/lwr_utils/config/rtt_ros-2.9.rosinstall -t ~/rtt_ros-2.9_ws/src
-wstool update -j2 -t ~/rtt_ros-2.9_ws/src
+wstool update -t ~/rtt_ros-2.9_ws/src
 
 catkin config -w ~/rtt_ros-2.9_ws/ --init --install --extend ~/orocos-2.9_ws/install
 catkin config -w ~/rtt_ros-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release 
