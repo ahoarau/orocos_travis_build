@@ -21,10 +21,10 @@ catkin config --init -w ~/orocos-2.9_ws/ --install --extend /opt/ros/$ROS_DISTRO
 catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 source /opt/ros/$ROS_DISTRO/setup.bash
-rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -v -r 
+rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
 # Build
-catkin build -w ~/orocos-2.9_ws/
+catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
 mkdir -p ~/rtt_ros-2.9_ws/src
 wstool init ~/rtt_ros-2.9_ws/src
@@ -35,9 +35,9 @@ catkin config -w ~/rtt_ros-2.9_ws/ --init --install --extend ~/orocos-2.9_ws/ins
 catkin config -w ~/rtt_ros-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release 
 
 source ~/orocos-2.9_ws/install/setup.bash
-rosdep install -q --from-paths ~/rtt_ros-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -v -r 
+rosdep install -q --from-paths ~/rtt_ros-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
-catkin build -w ~/rtt_ros-2.9_ws/
+catkin build -w ~/rtt_ros-2.9_ws/ --summarize  --no-status
 
 source ~/rtt_ros-2.9_ws/install/setup.bash
 
