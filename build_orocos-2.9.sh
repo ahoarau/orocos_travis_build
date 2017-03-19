@@ -25,8 +25,8 @@ git submodule foreach git pull
 catkin config --init -w ~/orocos-2.9_ws/ --install --extend /opt/ros/$ROS_DISTRO
 catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release
 
-catkin config --init --install --extend ~/orocos-2.9_ws/install -w ~/rtt_ros-2.9_ws/
-catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release -w ~/rtt_ros-2.9_ws/
+catkin config -w ~/rtt_ros-2.9_ws/ --init --install --extend ~/orocos-2.9_ws/install
+catkin config -w ~/rtt_ros-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release 
 
 
 rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y
