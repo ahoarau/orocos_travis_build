@@ -1,12 +1,12 @@
 sudo: required
 dist: trusty
-language: c++
-cache: ccache
+language: generic
 
 env:
   global:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - NO_TESTS_BUILD='true'
+    - NO_TESTS_INSTALL='true'
     - BEFORE_SCRIPT='bash <(curl -s https://raw.githubusercontent.com/ahoarau/orocos_travis_build/master/build_orocos-2.9.sh)'
     - ADDITIONAL_DEBS="curl"
   
@@ -14,18 +14,9 @@ env:
     - ROS_DISTRO="indigo"
     - ROS_DISTRO="jade"
     - ROS_DISTRO="kinetic"
+    - ROS_DISTRO="lunar"
 install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 script:
   - source .ci_config/travis.sh
-
-deploy:
-  provider: releases
-  api_key:
-    secure: $API_TOKEN
-  file:
-    - ~/orocos_toolchain-release.tar.gz
-    - rtt_ros-release.tar.gz
-  skip_cleanup: true
-  on:
-    tags: true
+  
