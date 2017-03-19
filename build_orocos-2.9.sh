@@ -26,6 +26,8 @@ rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS
 # Build
 catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
+tar -czf ~/orocos_toolchain-release.tar.gz ~/orocos-2.9_ws/install 
+
 mkdir -p ~/rtt_ros-2.9_ws/src
 wstool init ~/rtt_ros-2.9_ws/src
 wstool merge https://github.com/kuka-isir/rtt_lwr/raw/rtt_lwr-2.0/lwr_utils/config/rtt_ros-2.9.rosinstall -t ~/rtt_ros-2.9_ws/src
@@ -38,6 +40,8 @@ source ~/orocos-2.9_ws/install/setup.bash
 rosdep install -q --from-paths ~/rtt_ros-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
 catkin build -w ~/rtt_ros-2.9_ws/ --summarize  --no-status
+
+tar -czf ~/rtt_ros-release.tar.gz ~/rtt_ros-2.9_ws/install 
 
 source ~/rtt_ros-2.9_ws/install/setup.bash
 
