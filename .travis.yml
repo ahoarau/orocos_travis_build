@@ -18,3 +18,14 @@ install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 script:
   - source .ci_config/travis.sh
+
+deploy:
+  provider: releases
+  api_key:
+    secure: $API_TOKEN
+  file:
+    - ~/orocos_toolchain-release.tar.gz
+    - rtt_ros-release.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
