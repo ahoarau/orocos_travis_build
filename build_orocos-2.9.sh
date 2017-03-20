@@ -1,4 +1,4 @@
-#/usr/bin/env sh
+#!/usr/bin/env sh
 
 STARTPOINT=$(pwd)
 echo "Starting point : " $(pwd)
