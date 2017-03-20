@@ -18,8 +18,10 @@ env:
     - ROS_DISTRO="lunar"
 install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
+  
 script:
-  - echo 'test: $TEST_SECRET - ${TEST_SECRET}'
+  - export test='test: $TEST_SECRET.${TEST_SECRET}'
+  - echo $test
   - source .ci_config/travis.sh
   - docker ps
   
