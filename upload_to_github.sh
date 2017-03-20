@@ -11,6 +11,6 @@ git checkout -q -b $(lsb_release -cs)-release
 cp ~/orocos_toolchain-release.tar.gz .
 git add ~/orocos_toolchain-release.tar.gz
 git commit -m "Travis-CI build $(date)"
-git push -q origin $(lsb_release -cs)-release
+git push -q -f origin $(lsb_release -cs)-release
 
 #curl --data '{"tag_name": "v2.9.0","target_commitish": "master","name": "v2.9.0","body": "Release of version 2.9.0","draft": false,"prerelease": false}' https://api.github.com/repos/:ahoarau/:orocos_travis_build/releases?access_token=:$API_TOKEN
