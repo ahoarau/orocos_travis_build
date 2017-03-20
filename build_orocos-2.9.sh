@@ -28,7 +28,8 @@ catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
 tar -czf ~/orocos_toolchain-release.tar.gz ~/orocos-2.9_ws/install
 
-ls -l
+git config --global user.email "hoarau.robotics@gmail.com"
+git config --global user.name "Antoine Hoarau - Travis-CI"
 
 git clone https://ahoarau:$API_TOKEN@github.com/ahoarau/orocos_travis_build
 cd orocos_travis_build
