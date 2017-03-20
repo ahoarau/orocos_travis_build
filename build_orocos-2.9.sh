@@ -1,7 +1,9 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 STARTPOINT=$(pwd)
 echo "Starting point : " $(pwd)
+echo "Super secret : $TEST_SECRET"
+echo $TEST_SECRET
 
 mkdir -p ~/orocos-2.9_ws/src
 
