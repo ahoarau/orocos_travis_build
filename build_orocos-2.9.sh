@@ -14,6 +14,7 @@ wstool update -t ~/orocos-2.9_ws/src
 cd ~/orocos-2.9_ws/src/orocos_toolchain
 git submodule foreach git checkout toolchain-2.9
 git submodule foreach git pull
+cd $STARTPOINT
 
 # Configure the workspaces
 
