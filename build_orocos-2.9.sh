@@ -26,8 +26,18 @@ rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS
 # Build
 catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
-tar -czf ~/orocos_toolchain-release.tar.gz ~/orocos-2.9_ws/install 
-curl --data '{"tag_name": "v2.9.0","target_commitish": "master","name": "v2.9.0","body": "Release of version 2.9.0","draft": false,"prerelease": false}' https://api.github.com/repos/:ahoarau/:orocos_travis_build/releases?access_token=:$API_TOKEN
+tar -czf ~/orocos_toolchain-release.tar.gz ~/orocos-2.9_ws/install
+
+ls -l
+
+git clone https://ahoarau:$API_TOKEN@github.com/ahoarau/orocos_travis_build
+cd orocos_travis_build
+git checkout -b $(lsb_release -cs)-release
+cp ~/orocos_toolchain-release.tar.gz .
+git add orocos_toolchain-release.tar.gz
+git commit -m "Travis-CI build $(date)"
+git push origin $(lsb_release -cs)-release
+#curl --data '{"tag_name": "v2.9.0","target_commitish": "master","name": "v2.9.0","body": "Release of version 2.9.0","draft": false,"prerelease": false}' https://api.github.com/repos/:ahoarau/:orocos_travis_build/releases?access_token=:$API_TOKEN
 
 #mkdir -p ~/rtt_ros-2.9_ws/src
 #wstool init ~/rtt_ros-2.9_ws/src
