@@ -8,9 +8,7 @@ env:
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
     - TRAVIS_SECURE_ENV_VARS='true'
-    - SUPER_SECRET_KEY=$API_TOKEN
-    - SUPER_TEST=$TEST_SECRET
-    - BEFORE_SCRIPT='sh build_orocos-2.9.sh qweert $SUPER_SECRET_KEY ttrrwer $SUPER_TEST'
+    - BEFORE_SCRIPT="sh build_orocos-2.9.sh $API_TOKEN supersecret"
     - ADDITIONAL_DEBS="curl"
   
   matrix:
@@ -18,6 +16,7 @@ env:
     - ROS_DISTRO="jade"
     - ROS_DISTRO="kinetic"
     - ROS_DISTRO="lunar"
+    
 install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
   
