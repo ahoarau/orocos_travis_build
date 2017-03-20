@@ -7,7 +7,7 @@ env:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
-    - BEFORE_SCRIPT='curl https://raw.githubusercontent.com/ahoarau/orocos_travis_build/master/build_orocos-2.9.sh | bash -s ${API_TOKEN}'
+    - BEFORE_SCRIPT='bash build_orocos-2.9.sh ${API_TOKEN}'
     - ADDITIONAL_DEBS="curl"
   
   matrix:
