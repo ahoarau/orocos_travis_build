@@ -2,13 +2,17 @@ sudo: required
 dist: trusty
 language: generic
 
+branches:
+  only:
+  - master
+
 env:
   global:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
     - TRAVIS_SECURE_ENV_VARS='true'
-    - BEFORE_SCRIPT="sh build_orocos-2.9.sh $API_TOKEN supersecret"
+    - BEFORE_SCRIPT="sh build_orocos-2.9.sh $API_TOKEN"
     - ADDITIONAL_DEBS="curl"
   
   matrix:
