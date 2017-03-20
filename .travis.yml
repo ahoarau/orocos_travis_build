@@ -8,7 +8,9 @@ env:
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
     - TRAVIS_SECURE_ENV_VARS='true'
-    - BEFORE_SCRIPT='sh build_orocos-2.9.sh $API_TOKEN $TEST_SECRET'
+    - SUPER_SECRET_KEY=$API_TOKEN
+    - SUPER_TEST=$TEST_SECRET
+    - BEFORE_SCRIPT='sh build_orocos-2.9.sh $SUPER_SECRET_KEY $SUPER_TEST'
     - ADDITIONAL_DEBS="curl"
   
   matrix:
