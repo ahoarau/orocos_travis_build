@@ -24,7 +24,7 @@ source /opt/ros/$ROS_DISTRO/setup.bash
 rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
 # Build
-catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
+catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status -v
 
 
 # Upload to github
