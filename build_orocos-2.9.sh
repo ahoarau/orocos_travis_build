@@ -42,11 +42,11 @@ cp ~/orocos_toolchain-release.tar.gz .
 echo "
 # Orocos Toolchain 2.9
 
-Built on travis-ci.org on $date
+Built on travis-ci.org $(date)
 
 * Ubuntu $(lsb_release -cs)
 * ROS $ROS_DISTRO
-* Arch : $(uname -m)
+* Arch $(uname -m)
 
 " >> README.md
 
