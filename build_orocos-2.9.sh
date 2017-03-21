@@ -33,11 +33,11 @@ git config --global user.name "Antoine Hoarau - Travis-CI"
 
 git clone -q https://ahoarau:$1@github.com/ahoarau/orocos_travis_build
 cd orocos_travis_build
-git checkout -q -b $(lsb_release -cs)-release
+git checkout -q -b $ROS_DISTRO-release
 cp ~/orocos_toolchain-release.tar.gz .
 git add orocos_toolchain-release.tar.gz
 git commit -m "Travis-CI build $(date)"
-git push -q -f origin $(lsb_release -cs)-release
+git push -q -f origin $ROS_DISTRO-release
 
 
 cd $STARTPOINT
