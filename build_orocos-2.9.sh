@@ -18,13 +18,13 @@ git submodule foreach git pull
 # Configure the workspaces
 
 catkin config --init -w ~/orocos-2.9_ws/ --install --extend /opt/ros/$ROS_DISTRO
-catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=ON -DENABLE_CORBA=ON -DCORBA_IMPLEMENTATION=OMNIORB
+catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release -DENABLE_CORBA=ON -DCORBA_IMPLEMENTATION=OMNIORB
 
 source /opt/ros/$ROS_DISTRO/setup.bash
 rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
 # Build
-catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status -v
+catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
 
 # Upload to github
