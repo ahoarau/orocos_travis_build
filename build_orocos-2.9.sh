@@ -35,7 +35,7 @@ git clone -q https://ahoarau:$1@github.com/ahoarau/orocos_travis_build
 cd orocos_travis_build
 git checkout -q -b $(lsb_release -cs)-release
 cp ~/orocos_toolchain-release.tar.gz .
-git add ~/orocos_toolchain-release.tar.gz
+git add orocos_toolchain-release.tar.gz
 git commit -m "Travis-CI build $(date)"
 git push -q -f origin $(lsb_release -cs)-release
 
