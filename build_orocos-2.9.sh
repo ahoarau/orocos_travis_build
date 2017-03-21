@@ -14,7 +14,6 @@ wstool update -t ~/orocos-2.9_ws/src
 cd ~/orocos-2.9_ws/src/orocos_toolchain
 git submodule foreach git checkout toolchain-2.9
 git submodule foreach git pull
-cd $STARTPOINT
 
 # Configure the workspaces
 
@@ -39,6 +38,9 @@ cp ~/orocos_toolchain-release.tar.gz .
 git add ~/orocos_toolchain-release.tar.gz
 git commit -m "Travis-CI build $(date)"
 git push -q -f origin $(lsb_release -cs)-release
+
+
+cd $STARTPOINT
 
 #mkdir -p ~/rtt_ros-2.9_ws/src
 #wstool init ~/rtt_ros-2.9_ws/src
