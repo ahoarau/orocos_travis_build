@@ -12,10 +12,11 @@ env:
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
     - TRAVIS_SECURE_ENV_VARS='true'
-    - BEFORE_SCRIPT="travis_wait 30 sh build_orocos-2.9.sh $API_TOKEN"
+    - BEFORE_SCRIPT="sh build_orocos-2.9.sh $API_TOKEN"
     - ADDITIONAL_DEBS="curl"
   
   matrix:
+    - ROS_DISTRO="hydro"
     - ROS_DISTRO="indigo"
     - ROS_DISTRO="jade"
     - ROS_DISTRO="kinetic"
