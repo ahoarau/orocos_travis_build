@@ -26,16 +26,17 @@ rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS
 # Build
 catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
-tar -czf ~/orocos_toolchain-release.tar.gz ~/orocos-2.9_ws/install
+tar -czf ~/orocos_toolchain-release.tar.gz -C ~/orocos-2.9_ws/install .
 
 git config --global user.email "hoarau.robotics@gmail.com"
 git config --global user.name "Antoine Hoarau - Travis-CI"
 
-git clone -q https://ahoarau:$1@github.com/ahoarau/orocos_travis_build
+git clone -q https://ahoarau:$1@github.com/ahoarau/orocos_travis_build -b master
 cd orocos_travis_build
 git checkout -q -b $ROS_DISTRO-release
+rm -rf *
 cp ~/orocos_toolchain-release.tar.gz .
-git add orocos_toolchain-release.tar.gz
+git add -A
 git commit -m "Travis-CI build $(date)"
 git push -q -f origin $ROS_DISTRO-release
 
