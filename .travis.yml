@@ -12,9 +12,9 @@ env:
     - NO_TESTS_BUILD='true'
     - NO_TESTS_INSTALL='true'
     - TRAVIS_SECURE_ENV_VARS='true'
-    - BEFORE_SCRIPT="sh build_orocos-2.9.sh"
+    - BEFORE_SCRIPT="sh build_orocos-2.9.sh $API_TOKEN"
     - ADDITIONAL_DEBS="curl"
-    - AFTER_SCRIPT="sh upload_to_github.sh $API_TOKEN > /dev/null"
+    #- AFTER_SCRIPT="sh upload_to_github.sh $API_TOKEN > /dev/null"
   
   matrix:
     - ROS_DISTRO="indigo"
