@@ -39,11 +39,16 @@ git checkout -q -b $ROS_DISTRO-release
 rm -rf *
 cp ~/orocos_toolchain-release.tar.gz .
 
-echo "# Orocos Toolchain 2.9" >> README.md
-echo "Built on travis-ci.org on $date" >> README.md
-echo "* Ubuntu $(lsb_release -cs)" >> README.md
-echo "* ROS $ROS_DISTRO" >> README.md
-echo "* Arch : $(uname -m)" >> README.md
+echo "
+# Orocos Toolchain 2.9
+
+Built on travis-ci.org on $date
+
+* Ubuntu $(lsb_release -cs)
+* ROS $ROS_DISTRO
+* Arch : $(uname -m)
+
+" >> README.md
 
 git add -A
 git commit -m "Travis-CI build $(date)"
