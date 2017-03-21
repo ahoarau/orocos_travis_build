@@ -18,7 +18,7 @@ git submodule foreach git pull
 # Configure the workspaces
 
 catkin config --init -w ~/orocos-2.9_ws/ --install --extend /opt/ros/$ROS_DISTRO
-catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release
+catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=ON -DENABLE_CORBA=ON -DCORBA_IMPLEMENTATION=OMNIORB
 
 source /opt/ros/$ROS_DISTRO/setup.bash
 rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
@@ -26,6 +26,8 @@ rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS
 # Build
 catkin build -w ~/orocos-2.9_ws/ --summarize  --no-status
 
+
+# Upload to github
 tar -czf ~/orocos_toolchain-release.tar.gz -C ~/orocos-2.9_ws/install .
 
 git config --global user.email "hoarau.robotics@gmail.com"
@@ -36,6 +38,13 @@ cd orocos_travis_build
 git checkout -q -b $ROS_DISTRO-release
 rm -rf *
 cp ~/orocos_toolchain-release.tar.gz .
+
+echo "# Orocos Toolchain 2.9" >> README.md
+echo "Built on travis-ci.org on $date" >> README.md
+echo "* Ubuntu $(lsb_release -cs)" >> README.md
+echo "* ROS $ROS_DISTRO" >> README.md
+echo "* Arch : $(uname -m)" >> README.md
+
 git add -A
 git commit -m "Travis-CI build $(date)"
 git push -q -f origin $ROS_DISTRO-release
