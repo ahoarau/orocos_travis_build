@@ -37,6 +37,7 @@ git clone -q https://ahoarau:$1@github.com/ahoarau/orocos_travis_build -b master
 cd orocos_travis_build
 git checkout -q -b $ROS_DISTRO-release
 rm -rf *
+rm .travis.yml
 cp ~/orocos_toolchain-release.tar.gz .
 
 echo "
