@@ -15,6 +15,10 @@ cd ~/orocos-2.9_ws/src/orocos_toolchain
 git submodule foreach git checkout toolchain-2.9
 git submodule foreach git pull
 
+
+# Hack for orogen+rosdep
+rm ~/orocos-2.9_ws/src/orocos_toolchain/orogen/manifest.xml
+
 # Configure the workspaces
 
 catkin config --init -w ~/orocos-2.9_ws/ --install --extend /opt/ros/$ROS_DISTRO
