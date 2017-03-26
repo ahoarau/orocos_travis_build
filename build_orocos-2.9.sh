@@ -27,11 +27,9 @@ catkin config -w ~/orocos-2.9_ws/ --cmake-args -DCMAKE_BUILD_TYPE=Release -DENAB
 rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS_DISTRO -y -r 
 
 if [ "$ROS_DISTRO" = "hydro" ]; then
-    apt-get install -q -y ruby1.9.1-dev
+    apt-get install -q -y ruby1.9.1-full
     update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 50
     update-alternatives --set ruby /usr/bin/ruby1.9.1
-    ruby --version
-    apt-cache search ruby1.9
 fi
 
 # Build
