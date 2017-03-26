@@ -28,7 +28,7 @@ rosdep install -q --from-paths ~/orocos-2.9_ws/src --ignore-src --rosdistro $ROS
 
 if [ "$ROS_DISTRO" = "hydro" ]; then
     apt-get install -q -y ruby1.9.1-dev
-    update-alternatives --set ruby /usr/bin/ruby1.9.3
+    update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.3 50
 fi
 
 # Build
