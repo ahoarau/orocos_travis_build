@@ -31,6 +31,7 @@ if [ "$ROS_DISTRO" = "hydro" ]; then
     update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 50
     update-alternatives --set ruby /usr/bin/ruby1.9.1
     ruby --version
+    apt-cache search ruby1.9
 fi
 
 # Build
