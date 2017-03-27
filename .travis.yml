@@ -16,7 +16,6 @@ env:
     - ADDITIONAL_DEBS="curl"
   
   matrix:
-    - ROS_DISTRO="hydro"
     - ROS_DISTRO="indigo"
     - ROS_DISTRO="jade"
     - ROS_DISTRO="kinetic"
